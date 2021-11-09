@@ -1,21 +1,21 @@
 <script type="text/javascript">
-    RED.nodes.registerType('toFloat',{
+    RED.nodes.registerType('floatToByte', {
         category: 'function',
         color: '#FFAAAA',
         defaults: {
-            name: {value:""},
-            toFixed: {value:""}
+            name: {value: ""},
+            toFixed: {value: ""}
         },
-        inputs:1,
-        outputs:1,
+        inputs: 1,
+        outputs: 1,
         icon: "arrow-in.png",
-        label: function() {
-            return this.name||"toFloat";
+        label: function () {
+            return this.name || "floatToByte";
         }
     });
 </script>
 
-<script type="text/x-red" data-template-name="toFloat">
+<script type="text/x-red" data-template-name="floatToByte">
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
@@ -26,15 +26,15 @@
     </div>
 </script>
 
-<script type="text/x-red" data-help-name="toFloat">
-<p>Converts Binary Strings and Decimals Digits (32 bit) into IEEE-754 Floating Point numbers. Works also with arrays.</p>
+<script type="text/x-red" data-help-name="floatToByte">
+<p>Converts IEEE-754 Floating Point numbers to an array of byte.</p>
 
 <h3>Inputs</h3>
     <dl class="message-properties">
         <dt>payload
             <span class="property-type"> string | Int </span>
         </dt>
-        <dd> the number or the array of numbers to decode in Float 32 bit. </dd>
+        <dd> A string or a float point number </dd>
         <dt class="optional">Decimals Number <span class="property-type">Number</span></dt>
         <dd> max digits you want to keep after the '.'.</dd>
     </dl>
@@ -43,7 +43,7 @@
      <ol class="node-ports">
          <li>Standard output
              <dl class="message-properties">
-                 <dt>payload <span class="property-type">Number | Array</span></dt>
+                 <dt>payload <span class="property-type">Number | string</span></dt>
                  <dd>the standard output of the command.</dd>
              </dl>
          </li>
@@ -56,13 +56,10 @@
      </ol>
 
 <h3>Details</h3>
-    <p><code>msg.payload</code> must be an Integer 32 bit or a Binary string like
-    '1000000010010001111010111000011' (3.14) if the type is wrong an error is returned,
-    if the input is an Array the index of the wrong element is returned with the error.
-    <p>Decimals digits can be configured in the node or if left blank the numbers will not
-    be truncated</p>
+    <p><code>msg.payload</code> must be a float point number or a string 
+    '123.456' (123.456) 
 <h3>References</h3>
     <ul>
-        <li><a href="https://github.com/robertsLando/node-red-contrib-float">GitHub</a> - the node github repository</li>
+        <li><a href="https://github.com/kyrix/node-red-contrib-float2byte">GitHub</a> - the node github repository</li>
     </ul>
 </script>
