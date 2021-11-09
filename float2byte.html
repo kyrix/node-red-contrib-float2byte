@@ -1,0 +1,65 @@
+<script type="text/javascript">
+    RED.nodes.registerType('floatToByte', {
+        category: 'function',
+        color: '#FFAAAA',
+        defaults: {
+            name: {value: ""},
+            toFixed: {value: ""}
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "arrow-in.png",
+        label: function () {
+            return this.name || "floatToByte";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="floatToByte">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-toFixed"><i class="icon-tag"></i> Decimal digits</label>
+        <input type="number" id="node-input-toFixed" placeholder="Example 1: 0.1 - 2: 0.01">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="floatToByte">
+<p>Converts IEEE-754 Floating Point numbers to an array of byte.</p>
+
+<h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload
+            <span class="property-type"> string | Int </span>
+        </dt>
+        <dd> A string or a float point number </dd>
+        <dt class="optional">Decimals Number <span class="property-type">Number</span></dt>
+        <dd> max digits you want to keep after the '.'.</dd>
+    </dl>
+
+ <h3>Outputs</h3>
+     <ol class="node-ports">
+         <li>Standard output
+             <dl class="message-properties">
+                 <dt>payload <span class="property-type">Number | string</span></dt>
+                 <dd>the standard output of the command.</dd>
+             </dl>
+         </li>
+         <li>Standard error
+             <dl class="message-properties">
+                 <dt>payload <span class="property-type">string</span></dt>
+                 <dd>the standard error of the command.</dd>
+             </dl>
+         </li>
+     </ol>
+
+<h3>Details</h3>
+    <p><code>msg.payload</code> must be a float point number or a string 
+    '123.456' (123.456) 
+<h3>References</h3>
+    <ul>
+        <li><a href="https://github.com/kyrix/node-red-contrib-float2byte">GitHub</a> - the node github repository</li>
+    </ul>
+</script>
