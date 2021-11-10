@@ -1,4 +1,4 @@
-# node-red-contrib-floattobyte
+# node-red-contrib-float2byte
 
 Node Red node to convert IEEE-754 float point numbers to byte array
 
